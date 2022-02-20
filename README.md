@@ -40,8 +40,8 @@ To start the tool, run `python3 main.py <mode> <space-separated symbols>` in the
 
 To stop the tool, right-click on the python graph icon (looks like a rocket) at the bottom of the screen and click "Quit".
 
-Example: `python3 main.py mock SPY220222C00435000 SPY220222P00435000`. This will start the tool in `mock` mode, and will have graphs for two options. The black line is the average of bid and ask. The red line is the moving average.
-
 `<mode>` can be `mock` or `live`. `mock` is for fake data. `live` is for real data.
 
-Example: `python3 main.py live SPY220222C00435000 SPY220222P00435000`. This won't show data when the market is closed.
+Example: `python3 main.py mock SPY220222C00435000 SPY220222P00435000`. This will start the tool in `mock` mode, and will have graphs for two options. The black line is the average of bid and ask. The red line is the moving average.
+
+Example: `python3 main.py live SPY220222C00435000 SPY220222P00435000`. This will only show data when the market is open.
