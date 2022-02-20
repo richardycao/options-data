@@ -26,7 +26,7 @@ Shows real-time graphs and stats for options data.
 
 4. Download this code: Run `git clone https://github.com/richardycao/options-data.git`.
 
-5. Change direction: `cd options-data`.
+5. Change directory: `cd options-data`.
 
 6. Create personal config: Run `cp config-example.py config.py`.
 
