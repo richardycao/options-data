@@ -53,7 +53,7 @@ class TradeHelper:
         }
         for i, symbol in enumerate(self.params['symbols']):
             self.axs[i].yaxis.tick_right()
-            self.axs[i].yaxis.set_label_position("right")
+            self.axs[i].yaxis.set_label_coords(1.2, 1)
             self.axs[i].title.set_text(symbol)
         self.mock_vals = [10 for _ in self.params['symbols']]
 
@@ -62,9 +62,9 @@ class TradeHelper:
         if len(window) == 0:
             return ""
         return f"""
-                                    mean: {self.trunc(np.mean(window), 2)}, std: {self.trunc(np.std(window), 2)}
-                                    low: {self.trunc(np.min(window), 2)}, high: {self.trunc(np.max(window), 2)}
-                                    bid: {self.trunc(self.queues[symbol]['last_bid'], 2) or "-"}, ask: {self.trunc(self.queues[symbol]['last_ask'], 2) or "-"}
+        mean: {self.trunc(np.mean(window), 2)}, std: {self.trunc(np.std(window), 2)}
+        low: {self.trunc(np.min(window), 2)}, high: {self.trunc(np.max(window), 2)}
+        bid: {self.trunc(self.queues[symbol]['last_bid'], 2) or "-"}, ask: {self.trunc(self.queues[symbol]['last_ask'], 2) or "-"}
         """
     
     def trunc(self, x, decimals):

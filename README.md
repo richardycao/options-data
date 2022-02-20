@@ -34,7 +34,9 @@ Shows real-time graphs and stats for options data.
 
 ### Using the tool
 
-To use the tool, run `python3 main.py <mode> <space-separated symbols>` in the terminal.
+To start the tool, run `python3 main.py <mode> <space-separated symbols>` in the terminal.
+
+To stop the tool, right-click on the python graph icon (looks like a rocket) at the bottom of the screen and click "Quit".
 
 Example: `python3 main.py mock SPY220222C00435000 SPY220222P00435000`. This will start the tool in `mock` mode, and will have graphs for two options. The black line is the average of bid and ask. The red line is the moving average.
 
