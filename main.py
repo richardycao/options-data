@@ -117,7 +117,7 @@ def main(symbols, mode):
     th.run()
 
 if __name__ == "__main__":
-    args = sys.argv
+    args = sys.argv[1:]
     mode = args[0]
     symbols = args[1:]
     main(symbols, mode)
