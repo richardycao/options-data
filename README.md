@@ -2,6 +2,8 @@
 
 Shows real-time graphs and stats for options data.
 
+![image](https://user-images.githubusercontent.com/56094002/154863664-203508a2-37f2-4342-921f-e2b023583c73.png)
+
 ## How to use:
 
 ### Getting API Access (only need to do this once)
