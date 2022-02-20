@@ -1,12 +1,13 @@
 
-realm = 'prod' # sandbox or prod
 
-PROD_ACCOUNT_ID = ''
+
+UPDATE_INTERVAL = 3000 # how often the graphs update, in milliseconds
+
 PROD_ACCESS_TOKEN = ''
-SANDBOX_ACCOUNT_ID = ''
-SANDBOX_ACCESS_TOKEN = ''
 
-##################### Don't change anything here #########################
+##################### Don't change anything below here #########################
+
+realm = 'prod'
 
 PROD_URL = 'https://api.tradier.com'
 SANDBOX_URL = 'https://sandbox.tradier.com'

@@ -18,17 +18,17 @@ Shows real-time graphs and stats for options data.
 
 1. Open the terminal.
 
-2. Go to https://brew.sh/ and copy this command `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`. Run the command in the terminal to install Homebrew.
+2. Install homebrew: Go to https://brew.sh/ and copy this command `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`. Run the command in the terminal.
 
-3. Run `brew install python` to install python.
+3. Install python: Run `brew install python`.
 
-4. Run `git clone https://github.com/richardycao/options-data.git` to download this code.
+4. Download this code: Run `git clone https://github.com/richardycao/options-data.git`.
 
-5. Run `cd options-data`.
+5. Change direction: `cd options-data`.
 
-6. Run `cp config-example.py config.py` to create your personal config file.
+6. Create personal config: Run `cp config-example.py config.py`.
 
-7. Open `config.py` in a text editor and paste your access token for `PROD_ACCESS_TOKEN`. This is the access token that was created on Tradier above.
+7. Set access token: Open `config.py` in a text editor and paste your access token for `PROD_ACCESS_TOKEN`. This is the access token that was created on Tradier above.
 
 8. Run `python3 -m pip install requirements.txt` to install required python libraries.
 

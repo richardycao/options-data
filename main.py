@@ -3,9 +3,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 import threading
 import matplotlib.animation as animation
+import matplotlib.dates as mdates
 from datetime import datetime
 import time
 import sys
+import config
 
 class TradeHelper:
     def __init__(self, symbols, mode='mock'):
@@ -32,8 +34,6 @@ class TradeHelper:
         # Data collection
         self.queue_capacity = 2460
         self.window_size = 100
-        self.log_interval = 5
-        self.log_i = 0
 
         # Plot
         self.fig, self.axs = plt.subplots(len(self.params['symbols']))
@@ -45,16 +45,19 @@ class TradeHelper:
                     wspace=0.4,  
                     hspace=0.4)
         self.fig.set_size_inches(10, 5)
+        self.fig.autofmt_xdate()
         self.lines = {
             symbol: {
                 'data': self.axs[i].plot(self.queues[symbol]['times'], self.queues[symbol]['data'], c='black'),
                 'avg': self.axs[i].plot(self.queues[symbol]['times'], self.queues[symbol]['avg'], c='red')
             } for i, symbol in enumerate(self.params['symbols'])
         }
+        xfmt = mdates.DateFormatter('%H:%M:%S')
         for i, symbol in enumerate(self.params['symbols']):
             self.axs[i].yaxis.tick_right()
             self.axs[i].yaxis.set_label_coords(1.2, 1)
             self.axs[i].title.set_text(symbol)
+            self.axs[i].xaxis.set_major_formatter(xfmt)
         self.mock_vals = [10 for _ in self.params['symbols']]
 
     def get_stats(self, symbol):
@@ -120,7 +123,7 @@ class TradeHelper:
         t = threading.Thread(target=self.run_ws if self.mode == 'live' else self.mock_ws)
         t.start()
 
-        ani = animation.FuncAnimation(self.fig, self.animate, interval=3000)
+        ani = animation.FuncAnimation(self.fig, self.animate, interval=config.UPDATE_INTERVAL)
         plt.show()
 
 def main(symbols, mode):
