@@ -32,11 +32,12 @@ class TradeHelper:
         }
 
         # Data collection
-        self.queue_capacity = 2460
-        self.window_size = 100
+        self.queue_capacity = config.GRAPH_CAPACITY
+        self.window_size = config.MA_WINDOW_SIZE
 
         # Plot
-        self.fig, self.axs = plt.subplots(len(self.params['symbols']))
+        num_graphs = max(len(self.params['symbols']), 2)
+        self.fig, self.axs = plt.subplots(num_graphs)
         plt.subplots_adjust(
                     left=0.05, 
                     bottom=0.1,  
@@ -44,7 +45,7 @@ class TradeHelper:
                     top=0.9,  
                     wspace=0.4,  
                     hspace=0.4)
-        self.fig.set_size_inches(10, 5)
+        self.fig.set_size_inches(10, num_graphs * 2)
         self.fig.autofmt_xdate()
         self.lines = {
             symbol: {
@@ -65,6 +66,7 @@ class TradeHelper:
         if len(window) == 0:
             return ""
         return f"""
+        Stats for recent {config.STATS_WINDOW_SIZE} data points
         mean: {self.trunc(np.mean(window), 2)}, std: {self.trunc(np.std(window), 2)}
         low: {self.trunc(np.min(window), 2)}, high: {self.trunc(np.max(window), 2)}
         bid: {self.trunc(self.queues[symbol]['last_bid'], 2) or "-"}, ask: {self.trunc(self.queues[symbol]['last_ask'], 2) or "-"}
@@ -100,7 +102,7 @@ class TradeHelper:
     def mock_ws(self):
         for i in range(1000):
             for j in range(len(self.mock_vals)):
-                self.mock_vals[j] += np.random.normal(0, 0.1)
+                self.mock_vals[j] += np.random.normal(0, 0.02)
             msgs = [{
                 'type': 'quote',
                 'symbol': symbol,
