@@ -40,3 +40,4 @@ Example: `python3 main.py mock SPY220222C00435000 SPY220222P00435000`. This will
 
 `<mode>` can be `mock` or `live`. `mock` is for fake data. `live` is for real data.
 
+Example: `python3 main.py live SPY220222C00435000 SPY220222P00435000`. This won't show data when the market is closed.
